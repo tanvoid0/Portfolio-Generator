@@ -1,29 +1,55 @@
 <?php
-
-namespace App;
-
-use Illuminate\Notifications\Notifiable;
-use Illuminate\Foundation\Auth\User as Authenticatable;
-
-class User extends Authenticatable
-{
-    use Notifiable;
-
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
-    protected $fillable = [
-        'name', 'email', 'password',
-    ];
-
-    /**
-     * The attributes that should be hidden for arrays.
-     *
-     * @var array
-     */
-    protected $hidden = [
-        'password', 'remember_token',
-    ];
-}
+    
+    namespace App;
+    
+    use Illuminate\Notifications\Notifiable;
+    use Illuminate\Foundation\Auth\User as Authenticatable;
+    use App\Description;
+    use App\Experience;
+    use App\Skill;
+    use App\Work;
+    
+    class User extends Authenticatable
+    {
+        use Notifiable;
+        
+        /**
+         * The attributes that are mass assignable.
+         *
+         * @var array
+         */
+        protected $fillable = [
+                'name', 'email', 'password',
+        ];
+        
+        /**
+         * The attributes that should be hidden for arrays.
+         *
+         * @var array
+         */
+        protected $hidden = [
+                'password', 'remember_token',
+        ];
+        
+        public function descriptions()
+        {
+            return $this->hasMany(Description::class);
+        }
+        
+        
+        public function experiences()
+        {
+            return $this->hasMany(Experience::class);
+        }
+        
+        
+        public function skills()
+        {
+            return $this->hasMany(Skill::class);
+        }
+        
+        public function works()
+        {
+            return $this->hasMany(Work::class);
+        }
+    }
