@@ -18,7 +18,7 @@
 
         <!-- User Account: style can be found in dropdown.less -->
         <li class="dropdown user user-menu">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+          <a href="{{ route('user.index') }}"  data-toggle="dropdown">
             <img src="{{ asset('img/user/'.Auth::user()->image )}}" class="user-image" alt="">
             <span class="hidden-xs">{{ Auth::user()->name}}</span>
           </a>
