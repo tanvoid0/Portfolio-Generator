@@ -30,9 +30,12 @@ class HomeController extends Controller
     
     public function panel(){
         $user = Auth::user();
-//        $skills = Skill::find($user->id);
-//        $works = Work::find($user->id);
-        return view('panel.dashboard', compact('user'));
+        $descriptions = User::find($user->id)->descriptions;
+        $experiences = User::find($user->id)->experiences;
+        $skills = User::find($user->id)->skills;
+        $works = User::find($user->id)->works;
+        return view('user.index', compact('user','descriptions', 'experiences', 'skills', 'works'));
+
     }
     
     public function index($username){

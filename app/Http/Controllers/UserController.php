@@ -82,27 +82,29 @@ class UserController extends Controller
 //    return        $request;
         $this->validate($request,[
             'name' => 'required',
+            'designation' => 'required',
         ]);
 
         $user = User::find($id);
 
-        $user->name = $request->name;
+
         if(Input::hasFile('image')){
             $file = Input::file('image');
             $file->move('img/user/', $file->getClientOriginalName());
             $user->image = $file->getClientOriginalName();
         }
+        $user->name = $request->name;
         $user->designation = $request->designation;
-        $user->dob = $request->dob;
-        $user->phone = $request->phone;
-        $user->address = $request->address;
-        $user->web = $request->web;
-        $user->fb = $request->fb;
-        $user->email = $request->email;
-        $user->username = $request->username;
+//        $user->dob = $request->dob;
+//        $user->phone = $request->phone;
+//        $user->address = $request->address;
+//        $user->web = $request->web;
+//        $user->fb = $request->fb;
+//        $user->email = $request->email;
+//        $user->username = $request->username;
         $user->save();
 
-        return redirect(route('user.index'));;
+        return redirect(route('dashboard'));;
     }
 
     /**
