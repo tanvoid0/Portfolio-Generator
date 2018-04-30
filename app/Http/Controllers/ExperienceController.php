@@ -50,8 +50,9 @@ class ExperienceController extends Controller
         $experience->start_year = $request->start_year;
         $experience->end_year = $request->end_year;
         $experience->save();
+        session (['msg' => "Experience Has Been ", "action" => "Added", "type" => "success"]);
 
-        return redirect(route('experience.index'));
+        return redirect(route('dashboard'));
     }
 
     /**
@@ -97,8 +98,9 @@ class ExperienceController extends Controller
         $experience->start_year = $request->start_year;
         $experience->end_year = $request->end_year;
         $experience->save();
+        session (['msg' => "Experience Has Been ", "action" => "Updated", "type" => "info"]);
 
-        return redirect(route('experience.index'));
+        return redirect(route('dashboard'));
     }
 
     /**
@@ -110,6 +112,8 @@ class ExperienceController extends Controller
     public function destroy($id)
     {
         Experience::find($id)->delete();
+        session (['msg' => "Experience Has Been ", "action" => "Deleted", "type" => "danger"]);
+
         return redirect()->back();
     }
 }

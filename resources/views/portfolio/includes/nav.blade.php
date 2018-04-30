@@ -29,7 +29,12 @@
 												<li class="js_nav-item nav-item"><a class="nav-item-child nav-item-hover" href="#experience">Experience</a></li>
 												<li class="js_nav-item nav-item"><a class="nav-item-child nav-item-hover" href="#work">Work</a></li>
 												<li class="js_nav-item nav-item"><a class="nav-item-child nav-item-hover" href="#contact">Contact</a></li>
+											@if($panel)
+												<li class="js_nav-item nav-item"><a class="nav-item-child nav-item-hover" href="{{ route('logout') }}">Log Out</a></li>
+											@else
 												<li class="js_nav-item nav-item"><a class="nav-item-child nav-item-hover" href="{{ route('login') }}">Login</a></li>
+											@endif
+
 										</ul>
 								</div>
 						</div>

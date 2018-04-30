@@ -7,7 +7,7 @@ use Auth;
 use App\User;
 use App\Skill;
 use App\Work;
-
+use Carbon\Carbon;
 class HomeController extends Controller
 {
     /**
@@ -30,18 +30,23 @@ class HomeController extends Controller
     
     public function panel(){
         $user = Auth::user();
-//        $skills = Skill::find($user->id);
-//        $works = Work::find($user->id);
-        return view('panel.dashboard', compact('user'));
-    }
-    
-    public function index($username){
-        $user = User::where('username', $username)->first();
-        $descriptions = User::find($user->id)->descriptions;
+        $panel = true;
+//        $descriptions = User::find($user->id)->descriptions;
         $experiences = User::find($user->id)->experiences;
         $skills = User::find($user->id)->skills;
         $works = User::find($user->id)->works;
-        return view('portfolio.index', compact('user','descriptions', 'experiences', 'skills', 'works'));
+        return view('portfolio.index', compact('user', 'panel', 'experiences', 'skills', 'works'));
+
+    }
+    
+    public function index($name){
+        $panel = false;
+        $user = User::where('name', $name)->first();
+//        $descriptions = User::find($user->id)->descriptions;
+        $experiences = User::find($user->id)->experiences;
+        $skills = User::find($user->id)->skills;
+        $works = User::find($user->id)->works;
+        return view('portfolio.index', compact('user', 'panel', 'experiences', 'skills', 'works'));
     }
 
 }

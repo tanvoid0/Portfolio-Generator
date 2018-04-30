@@ -18,9 +18,34 @@
     <!-- END HEAD -->
 
     <!-- BODY -->
-    <body id="body" data-spy="scroll" data-target=".header">
-
+    <body id="body" data-spy="scroll" data-target=".header" onload="loaderHide()">
+    <div class="loader" id="loader">
+        <div class="loader-inner">
+            <div class="loader-line-wrap">
+                <div class="loader-line"></div>
+            </div>
+            <div class="loader-line-wrap">
+                <div class="loader-line"></div>
+            </div>
+            <div class="loader-line-wrap">
+                <div class="loader-line"></div>
+            </div>
+            <div class="loader-line-wrap">
+                <div class="loader-line"></div>
+            </div>
+            <div class="loader-line-wrap">
+                <div class="loader-line"></div>
+            </div>
+        </div>
+    </div>
         @include('portfolio.includes.nav')
+
+
+
+        {{--Message--}}
+        @include('auth/messages')
+        {{--EndMessage--}}
+
 
         <!--========== SLIDER ==========-->
         @include('portfolio.pages.intro')
@@ -44,6 +69,7 @@
         <!-- End Contact -->
         <!--========== END PAGE LAYOUT ==========-->
         @include('portfolio.includes.footer')
+
     </body>
     <!-- END BODY -->
 </html>

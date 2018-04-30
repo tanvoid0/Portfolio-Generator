@@ -4,8 +4,9 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
+            <div clawss="card">
                 <div class="card-header">{{ __('Login') }}</div>
+                @include('auth.messages')
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('login') }}">

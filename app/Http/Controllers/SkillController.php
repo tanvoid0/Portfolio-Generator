@@ -48,8 +48,9 @@ class SkillController extends Controller
         $skill->name = $request->name;
         $skill->percentage = $request->percentage;
         $skill->save();
+        session (['msg' => "Skill Has Been ", "action" => "Added", "type" => "success"]);
 
-        return redirect(route('skill.index'));
+        return redirect(route('dashboard'));
     }
 
     /**
@@ -88,8 +89,9 @@ class SkillController extends Controller
         $skill->name = $request->name;
         $skill->percentage = $request->percentage;
         $skill->save();
+        session (['msg' => "Skill Has Been ", "action" => "Updated", "type" => "info"]);
 
-        return redirect(route('skill.index'));
+        return redirect(route('dashboard'));
     }
 
     /**
@@ -101,6 +103,7 @@ class SkillController extends Controller
     public function destroy($id)
     {
         Skill::find($id)->delete();
+        session (['msg' => "Skill Has Been ", "action" => "Deleted", "type" => "danger"]);
 
         return redirect()->back();
     }

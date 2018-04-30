@@ -18,8 +18,8 @@ class CreateExperiencesTable extends Migration
           $table->integer('user_id');
           $table->string('role');
           $table->string('company');
-          $table->date('start_year');
-          $table->date('end_year');
+          $table->integer('start_year');
+          $table->integer('end_year');
           $table->string('description');
           $table->timestamps();
         });

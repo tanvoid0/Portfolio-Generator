@@ -56,7 +56,9 @@ class WorkController extends Controller
         $work->description = $request->description;
         $work->link = $request->link;
         $work->save();
-        return redirect(route('work.index'));
+        session (['msg' => "Work Has Been ", "action" => "Added", "type" => "success"]);
+
+        return redirect(route('dashboard'));
     }
 
     /**
@@ -93,7 +95,7 @@ class WorkController extends Controller
     {
         $this->validate($request,[
             'title' => 'required',
-            'image' => 'required',
+//            'image' => 'required',
         ]);
         $work = Work::find($id);
         $work->title = $request->title;
@@ -106,7 +108,9 @@ class WorkController extends Controller
         $work->description = $request->description;
         $work->link = $request->link;
         $work->save();
-        return redirect(route('work.index'));
+        session (['msg' => "Work Has Been ", "action" => "Updated", "type" => "info"]);
+
+        return redirect(route('dashboard'));
     }
 
     /**
@@ -118,6 +122,8 @@ class WorkController extends Controller
     public function destroy($id)
     {
         Work::find($id)->delete();
-        return redirect(route('work.index'));
+        session (['msg' => "Work Has Been ", "action" => "Deleted", "type" => "danger"]);
+
+        return redirect(route('dashboard'));
     }
 }

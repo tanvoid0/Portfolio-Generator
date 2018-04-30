@@ -1,7 +1,20 @@
 <!--========== SLIDER ==========-->
-<div class="promo-block parallax-window" data-parallax="scroll" data-image-src="{{ asset('img/1920x1080/01.jpg')}}">
+<div class="promo-block parallax-window" data-parallax="scroll" data-image-src="
+    @if($user->image == "")
+        {{ asset('img/1920x1080/01.jpg')}}
+    @else
+        {{ asset('img/user/'.$user->image) }}
+    @endif
+        ">
 		<div class="container">
-				<div class="row">
+            @if(session('msg'))
+            <div id="notify" class="alert alert-{{ session('type') }} alert-dismissible fade in">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                {{session('msg')}} <strong>{{ session('action') }}!</strong>
+            </div>
+            @php(session (['msg' => "", "action" => "", "type" => ""]))
+            @endif
+				<div class="row" id="intro">
 						<div class="col-sm-6">
 								<div class="promo-block-divider">
 										<h1 class="promo-block-title">{{ $user->name }}</h1>
@@ -10,13 +23,65 @@
 								<ul class="list-inline">
 										<li><a href="{{ $user->web }}" target="_blank" class="social-icons"><i class="icon-globe"></i></a></li>
 										<li><a href="https://facebook.com/{{ $user->fb }}" target="_blank" class="social-icons"><i class="icon-social-facebook"></i></a></li>
-										{{--<li><a href="{{ $user->twitter }}" target="_blank" class="social-icons"><i class="icon-social-twitter"></i></a></li>--}}
-										{{--<li><a href="#" class="social-icons"><i class="icon-social-dribbble"></i></a></li>--}}
-										{{--<li><a href="#" class="social-icons"><i class="icon-social-behance"></i></a></li>--}}
-										{{--<li><a href="#" class="social-icons"><i class="icon-social-linkedin"></i></a></li>--}}
 								</ul>
 						</div>
 				</div>
+
+            @if($panel)
+            <div class="row">
+                <div class="col-sm-6">
+                    <button type="button" class="btn btn-default" data-toggle="modal" data-target="#intro-update"><i class="glyphicon-pencil"></i> Edit Intro</button>
+                </div>
+            </div>
+
+            <!-- Modal -->
+            <div class="modal fade" id="intro-update" tabindex="-1" role="dialog" aria-labelledby="intro-updateLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="intro-updateLabel">Update</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <form role="form" action="{{ route('user.update', $user->id) }}" method="post" enctype="multipart/form-data">
+
+                        <div class="modal-body">
+                                {{ csrf_field() }}
+                                {{ method_field('PUT') }}
+                                <input type="hidden" value="{{ csrf_token() }}" name="_token">
+                                <div class="promo-block-divider">
+                                    <label for="image" class="">Update Image</label>
+
+                                    <input type="file" id="image" name="image" class="dropify"
+                                           @if($user->image != "")
+                                                data-default-file="{{ asset('img/user/'.$user->image) }}"
+                                            @endif
+                                    />
+
+                                    <div class="form-group">
+                                        <label for="name" class="">Name</label>
+                                        <input type="text" class="form-control" id="name" name="name" placeholder="Name"
+                                               value="{{ $user->name }}">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="designation" class="">Designation</label>
+                                        <input type="text" class="form-control" id="designation" name="designation" placeholder="Designation"
+                                               value="{{ $user->designation }}">
+                                    </div>
+                                </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary">Update</button>
+                        </div>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+            @endif
 				<!--// end row -->
 		</div>
 </div>

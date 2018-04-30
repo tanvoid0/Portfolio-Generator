@@ -28,6 +28,64 @@
 												</div>
 										</div>
 								</div>
+							<br>
+
+							@if($panel)
+							<div class="col-sm-8 col-sm-offset-1">
+								<!-- Button trigger modal -->
+								<button type="button" class="btn btn-default" data-toggle="modal" data-target="#cnt-edit">Edit Contact</button>
+
+								<!-- Modal -->
+								<div class="modal fade" id="cnt-edit" tabindex="-1" role="dialog" aria-labelledby="cnt-editLabel" aria-hidden="true">
+									<div class="modal-dialog" role="document">
+										<div class="modal-content">
+											<div class="modal-header">
+												<h5 class="modal-title" id="cnt-editLabel">Edit Contact</h5>
+												<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+													<span aria-hidden="true">&times;</span>
+												</button>
+											</div>
+											<form role="form" action="{{ route('user.update', $user->id) }}" method="post" enctype="multipart/form-data">
+												{{ csrf_field() }}
+												{{ method_field('PUT') }}
+												<div class="modal-body">
+													<div class="form-group">
+														<label for="address" class="">Address</label>
+														<input type="text" class="form-control" id="address" name="address" placeholder="Address"
+															   value="{{ $user->address }}">
+													</div>
+
+
+													<div class="form-group">
+														<label for="phone" class="">Phone</label>
+														<input type="text" class="form-control" id="phone" name="phone" placeholder="Phone"
+															   value="{{ $user->phone }}">
+													</div>
+
+
+
+													<div class="form-group">
+														<label for="email" class="">Email</label>
+														<input type="email" class="form-control" id="email" name="email" placeholder="Email"
+															   value="{{ $user->email }}">
+													</div>
+
+													<div class="form-group">
+														<label for="web" class="">Personal Web/Blog</label>
+														<input type="text" class="form-control" id="web" name="web" placeholder="Personal Web/Blog"
+															   value="{{ $user->web }}">
+													</div>
+												</div>
+												<div class="modal-footer">
+													<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+													<button type="submit" class="btn btn-primary">Save</button>
+												</div>
+											</form>
+										</div>
+									</div>
+								</div>
+							</div>
+							@endif
 						</div>
 				</div>
 		</div>
