@@ -103,7 +103,11 @@ class UserController extends Controller
 //        $user->email = $request->email;
 //        $user->username = $request->username;
         $user->save();
+<<<<<<< HEAD
         session (['msg' => "Bio Has Been ", "action" => "Updated", "type" => "info"]);
+=======
+
+>>>>>>> 27eaf1fb8e2aafa704d61ee4aac25dea8cadf014
         return redirect(route('dashboard'));;
     }
 

@@ -36,6 +36,12 @@ class HomeController extends Controller
         $skills = User::find($user->id)->skills;
         $works = User::find($user->id)->works;
         return view('portfolio.index', compact('user', 'panel', 'experiences', 'skills', 'works'));
+        $descriptions = User::find($user->id)->descriptions;
+        $experiences = User::find($user->id)->experiences;
+        $skills = User::find($user->id)->skills;
+        $works = User::find($user->id)->works;
+        return view('user.index', compact('user','descriptions', 'experiences', 'skills', 'works'));
+
 
     }
     
