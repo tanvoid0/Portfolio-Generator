@@ -29,9 +29,13 @@
 
             @if($panel)
             <div class="row">
-                <div class="col-sm-6">
+                <div class="col-sm-6 btn-group">
                     <button type="button" class="btn btn-default" data-toggle="modal" data-target="#intro-update"><i class="glyphicon-pencil"></i> Edit Intro</button>
+                    <a href="{{route('index', $user->name)}}" target="_blank">
+                        <button class="btn btn-default" type="button"><i class="icon-eye"></i> Public profile</button>
+                    </a>
                 </div>
+
             </div>
 
             <!-- Modal -->

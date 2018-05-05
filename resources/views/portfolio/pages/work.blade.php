@@ -114,6 +114,7 @@
 																</div>
 															</div>
 														</div>
+														@if($panel)
 														<button><i class="icon-pencil "  data-toggle="modal" data-target="#work-edit-{{ $work->id }}"></i></button>
 
 
@@ -132,6 +133,7 @@
 																}
 																"><button><i class="icon-trash"></i></button>
 														</a>
+														@endif
 												@endforeach
 											@else
 												<h3>No Projects added yet</h3>
