@@ -34,13 +34,13 @@
 																		</div>
 
 																	@if($panel)
-																	<button><i class="glyphicon-pencil"  data-toggle="modal" data-target="#exp-edit-{{ $experience->id }}"></i></button>
+																	<button type="button" class="btn btn-default"><i class="glyphicon glyphicon-pencil"  data-toggle="modal" data-target="#exp-edit-{{ $experience->id }}"></i></button>
 
 																	<div class="modal fade" id="exp-edit-{{ $experience->id }}" tabindex="-1" role="dialog" aria-labelledby="exp-edit-{{ $experience->id }}Label" aria-hidden="true">
 																		<div class="modal-dialog" role="document">
 																			<div class="modal-content">
 																				<div class="modal-header">
-																					<h5 class="modal-title" id="exp-edit-{{ $experience->id }}Label">Add Experience</h5>
+																					<h5 class="modal-title" id="exp-edit-{{ $experience->id }}Label">Edit Experience</h5>
 																					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 																						<span aria-hidden="true">&times;</span>
 																					</button>
@@ -51,7 +51,6 @@
 
 																					<div class="modal-body">
 																						<div class="box-body">
-																							<div class="col-lg-offset-3 col-lg-6">
 																								<div class="form-group">
 																									<label for="role">Role</label>
 																									<input type="text" class="form-control" id="role" name="role" placeholder="Role" value="{{ $experience->role }}">
@@ -93,7 +92,6 @@
 																										@endfor
 																									</select>
 																								</div>
-																							</div>
 																						</div>
 
 																						<!-- /.box-body -->
@@ -123,7 +121,7 @@
 																				} else {
 																				event.preventDefault();
 																				}
-																				"><button><i class="icon-trash"></i></button>
+																				"><button class="btn btn-default"><i class="icon-trash"></i></button>
 																			</a>
 
 																	@endif

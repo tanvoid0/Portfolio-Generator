@@ -22,10 +22,8 @@ class HomeController extends Controller
      */
     public function home()
     {
-        if(Auth::user()){
-            return redirect(route('dashboard'));
-        }
-        return view('home');
+        $users = User::all();
+        return view('home', compact('users'));
     }
     
     public function panel(){

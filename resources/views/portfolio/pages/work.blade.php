@@ -114,10 +114,8 @@
 																</div>
 															</div>
 														</div>
-														<button><i class="icon-pencil "  data-toggle="modal" data-target="#work-edit-{{ $work->id }}"></i></button>
-
-
-
+														@if($panel)
+														<button type="button" class="btn btn-default"><i class="glyphicon glyphicon-pencil"  data-toggle="modal" data-target="#work-edit-{{ $work->id }}"></i></button>
 														<form id="delete-form-{{ $work->id }}" method="post" action="{{ route('work.destroy', $work->id) }}" style="display: none;">
 															{{ csrf_field() }}
 															{{ method_field('DELETE') }}
@@ -130,8 +128,9 @@
 																} else {
 																event.preventDefault();
 																}
-																"><button><i class="icon-trash"></i></button>
+																"><button type="button" class="btn btn-default"><i class="icon-trash"></i></button>
 														</a>
+														@endif
 												@endforeach
 											@else
 												<h3>No Projects added yet</h3>
@@ -174,7 +173,7 @@
 														<input type="file" id="image" name="image" class="dropify" data-default-file="{{ old('image') }}" />
 													</div>
 												</div>
-												<br><br><br><br><br><br><br><br><br><br>
+												<br><br><br><br><br><br><br><br><br><br><br>
 												<div class="form-group">
 													<label for="category">Category</label>
 													<input type="text" class="form-control" id="category" name="category" placeholder="Category" value="{{ old('category') }}">

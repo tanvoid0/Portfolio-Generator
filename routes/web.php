@@ -12,7 +12,7 @@
 */
 
 Auth::routes();
-Route::get('/', 'HomeController@panel')->middleware('auth');
+Route::get('/', 'HomeController@home');
 //Route::get('/home', 'HomeController@home')->name('home');
 Route::get('/id/{username}', 'HomeController@index')->name('index');
 Route::get('panel/', 'HomeController@panel')->name('dashboard')->middleware('auth');
@@ -27,3 +27,7 @@ Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout')->name
 Route::get('/admin', function(){
     return view('admin.index');
 })->name('admin');
+
+Route::get('test', function(){
+    return view('test');
+});

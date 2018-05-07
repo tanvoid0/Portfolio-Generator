@@ -79,22 +79,22 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-//    return        $request;
-        $this->validate($request,[
-            'name' => 'required',
-            'designation' => 'required',
-        ]);
-
         $user = User::find($id);
-
 
         if(Input::hasFile('image')){
             $file = Input::file('image');
             $file->move('img/user/', $file->getClientOriginalName());
             $user->image = $file->getClientOriginalName();
         }
-        $user->name = $request->name;
-        $user->designation = $request->designation;
+        if ($request->name != ""){
+            $user->name = $request->name;
+        }
+        if($request->designation != ""){
+            $user->designation = $request->designation;
+        }
+        if($request->description != ""){
+            $user->description = $request->description;
+        }
 //        $user->dob = $request->dob;
 //        $user->phone = $request->phone;
 //        $user->address = $request->address;
@@ -103,12 +103,8 @@ class UserController extends Controller
 //        $user->email = $request->email;
 //        $user->username = $request->username;
         $user->save();
-<<<<<<< HEAD
         session (['msg' => "Bio Has Been ", "action" => "Updated", "type" => "info"]);
-=======
-
->>>>>>> 27eaf1fb8e2aafa704d61ee4aac25dea8cadf014
-        return redirect(route('dashboard'));;
+        return redirect(route('dashboard'));
     }
 
     /**

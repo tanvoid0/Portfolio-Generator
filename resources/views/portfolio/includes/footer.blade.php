@@ -247,6 +247,7 @@
 
         <script>
             $(document).ready(function () {
+
             });
             function loaderHide(){
                     $('#loader').fadeOut("slow", function(){

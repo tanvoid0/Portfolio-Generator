@@ -11,13 +11,63 @@
             <div class="col-sm-8 col-sm-offset-1">
                 <div class="row" id="about-detail">
                     <div class="margin-b-60">
-                        <p>I'm Alex Teseira, orem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-                            exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                        <p>{{ $user->description }}</p>
                         {{-- <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p> --}}
                         {{--@foreach ($descriptions as $description)--}}
                         {{--<p>{{ $description->description }}</p>--}}
                         {{--@endforeach--}}
+                        @if($panel)
+                            <button type="button" class="btn btn-default" data-toggle="modal"
+                                    data-target="#description-edit"><i
+                                        class="glyphicon glyphicon-pencil"></i></button>
+
+                            <div class="modal fade" id="description-edit" tabindex="-1"
+                                 role="dialog" aria-labelledby="description-editTitle" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="description-editTitle">Update
+                                                Description</h5>
+                                            <button class="close" type="button" data-dismiss="modal"
+                                                    aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+
+                                            <form role="form"
+                                                  action="{{ route('user.update', $user->id) }}"
+                                                  method="post">
+                                                {{ csrf_field() }}
+                                                {{ method_field('PUT') }}
+                                                <div class="promo-block-divider">
+                                                    <div class="form-group">
+                                                        <label for="description">Description</label>
+                                                        <textarea class="form-control"
+                                                               id="description" name="description"
+                                                               placeholder="Write Something About Yourself"
+                                                                  minlength="10" maxlength="150">{{ $user->description }}</textarea>
+                                                    </div>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <div class="row">
+                                                        <div class="col">
+                                                            <button class="btn btn-secondary" type="button"
+                                                                    data-dismiss="modal">Close
+                                                            </button>
+                                                            <button class="btn btn-primary" type="submit">
+                                                                Update
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            @endif
                     </div>
                 @if(count($skills) > 0)
 
@@ -40,7 +90,7 @@
                                 @if($panel)
                                 <div class="col-sm-2">
                                     <div class="btn-group">
-                                        <button type="button" data-toggle="modal"
+                                        <button type="button" class="btn btn-default" data-toggle="modal"
                                                 data-target="#skill-edit-{{ $skill->id }}"><i
                                                     class="glyphicon glyphicon-pencil"></i></button>
 
@@ -56,51 +106,46 @@
                                                             <span aria-hidden="true">&times;</span>
                                                         </button>
                                                     </div>
-                                                    <form role="form"
-                                                          action="{{ route('skill.update', $skill->id) }}"
-                                                          method="post">
-                                                        {{ csrf_field() }}
-                                                        {{ method_field('PUT') }}
-                                                        <div class="row">
-                                                            <div class="col">
-                                                                <div class="modal-body">
-                                                                    <div class="box-body">
-                                                                        <div class="form-group">
-                                                                            <label for="name">Skill Name</label>
-                                                                            <input type="text" class="form-control"
-                                                                                   id="name" name="name"
-                                                                                   placeholder="Skill Name"
-                                                                                   value="{{ $skill->name }}">
-                                                                        </div>
+                                                    <div class="modal-body">
 
-                                                                        <div class="form-group">
-                                                                            <label for="percentage">Percentage</label>
-                                                                            <input type="number"
-                                                                                   class="form-control"
-                                                                                   id="percentage" name="percentage"
-                                                                                   placeholder="Percentage" max="100"
-                                                                                   value="{{ $skill->percentage }}">
-                                                                        </div>
+                                                        <form role="form"
+                                                              action="{{ route('skill.update', $skill->id) }}"
+                                                              method="post">
+                                                            {{ csrf_field() }}
+                                                            {{ method_field('PUT') }}
+                                                            <div class="promo-block-divider">
+                                                                            <div class="form-group">
+                                                                                <label for="name">Skill Name</label>
+                                                                                <input type="text" class="form-control"
+                                                                                       id="name" name="name"
+                                                                                       placeholder="Skill Name"
+                                                                                       value="{{ $skill->name }}">
+                                                                            </div>
+
+                                                                            <div class="form-group">
+                                                                                <label for="percentage">Percentage</label>
+                                                                                <input type="number"
+                                                                                       class="form-control"
+                                                                                       id="percentage" name="percentage"
+                                                                                       placeholder="Percentage" max="100"
+                                                                                       value="{{ $skill->percentage }}">
+                                                                            </div>
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <div class="row">
+                                                                    <div class="col">
+                                                                        <button class="btn btn-secondary" type="button"
+                                                                                data-dismiss="modal">Close
+                                                                        </button>
+                                                                        <button class="btn btn-primary" type="submit">
+                                                                            Update
+                                                                        </button>
                                                                     </div>
-
-
                                                                 </div>
                                                             </div>
-                                                        </div>
-                                                        <div class="modal-footer">
-                                                            <div class="row">
-                                                                <div class="col">
-                                                                    <button class="btn btn-secondary" type="button"
-                                                                            data-dismiss="modal">Close
-                                                                    </button>
-                                                                    <button class="btn btn-primary" type="submit">
-                                                                        Update
-                                                                    </button>
-                                                                </div>
-                                                            </div>
-                                                        </div>
 
-                                                    </form>
+                                                        </form>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -117,7 +162,7 @@
                                                     event.preventDefault();
                                                     }
                                                     ">
-                                                <button><i class="icon-trash"></i></button>
+                                                <button type="button" class="btn btn-default"><i class="icon-trash"></i></button>
                                             </a>
                                         </form>
                                     </div>

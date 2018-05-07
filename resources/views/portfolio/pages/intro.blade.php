@@ -29,8 +29,9 @@
 
             @if($panel)
             <div class="row">
-                <div class="col-sm-6">
-                    <button type="button" class="btn btn-default" data-toggle="modal" data-target="#intro-update"><i class="glyphicon-pencil"></i> Edit Intro</button>
+                <div class="col-sm-6 btn-group">
+                    <button type="button" class="btn btn-default" data-toggle="modal" data-target="#intro-update"><i class="glyphicon glyphicon-pencil"></i>  Edit Intro</button>
+                    <a href="{{ route('index', $user->name) }}"><button type="button" class="btn btn-default"><i class="glyphicon glyphicon-eye-open"></i>  View CV</button></a>
                 </div>
             </div>
 
@@ -44,7 +45,7 @@
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
-                        <form role="form" action="{{ route('user.update', $user->id) }}" method="post" enctype="multipart/form-data">
+                        <form role="form" id="intro-edit-form" action="{{ route('user.update', $user->id) }}" method="post" enctype="multipart/form-data">
 
                         <div class="modal-body">
                                 {{ csrf_field() }}
