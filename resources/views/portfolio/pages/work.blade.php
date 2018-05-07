@@ -115,7 +115,14 @@
 															</div>
 														</div>
 														@if($panel)
+<<<<<<< HEAD
 														<button type="button" class="btn btn-default"><i class="glyphicon glyphicon-pencil"  data-toggle="modal" data-target="#work-edit-{{ $work->id }}"></i></button>
+=======
+														<button><i class="icon-pencil "  data-toggle="modal" data-target="#work-edit-{{ $work->id }}"></i></button>
+
+
+
+>>>>>>> ee76c643eef334f739b7da374279d90ea7a6dc68
 														<form id="delete-form-{{ $work->id }}" method="post" action="{{ route('work.destroy', $work->id) }}" style="display: none;">
 															{{ csrf_field() }}
 															{{ method_field('DELETE') }}

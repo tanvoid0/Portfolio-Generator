@@ -24,6 +24,7 @@ Route::resource('panel/skill', 'SkillController')->middleware('auth');;
 Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout')->name('logout');
 
 
+<<<<<<< HEAD
 Route::get('/admin', function(){
     return view('admin.index');
 })->name('admin');
@@ -31,3 +32,8 @@ Route::get('/admin', function(){
 Route::get('test', function(){
     return view('test');
 });
+=======
+//Route::get('/admin', function(){
+//    return view('admin.index');
+//})->name('admin');
+>>>>>>> ee76c643eef334f739b7da374279d90ea7a6dc68

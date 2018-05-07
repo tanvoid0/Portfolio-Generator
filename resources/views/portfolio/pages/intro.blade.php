@@ -30,9 +30,17 @@
             @if($panel)
             <div class="row">
                 <div class="col-sm-6 btn-group">
+<<<<<<< HEAD
                     <button type="button" class="btn btn-default" data-toggle="modal" data-target="#intro-update"><i class="glyphicon glyphicon-pencil"></i>  Edit Intro</button>
                     <a href="{{ route('index', $user->name) }}"><button type="button" class="btn btn-default"><i class="glyphicon glyphicon-eye-open"></i>  View CV</button></a>
+=======
+                    <button type="button" class="btn btn-default" data-toggle="modal" data-target="#intro-update"><i class="glyphicon-pencil"></i> Edit Intro</button>
+                    <a href="{{route('index', $user->name)}}" target="_blank">
+                        <button class="btn btn-default" type="button"><i class="icon-eye"></i> Public profile</button>
+                    </a>
+>>>>>>> ee76c643eef334f739b7da374279d90ea7a6dc68
                 </div>
+
             </div>
 
             <!-- Modal -->
