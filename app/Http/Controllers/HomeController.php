@@ -53,4 +53,10 @@ class HomeController extends Controller
         return view('portfolio.index', compact('user', 'panel', 'experiences', 'skills', 'works'));
     }
 
+    public function admin()
+    {
+        $users = User::all();
+        return view('admin.dashboard', compact('users'));
+    }
+
 }
