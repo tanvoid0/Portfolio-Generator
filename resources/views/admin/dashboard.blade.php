@@ -42,9 +42,9 @@
                             <td>{{ $user->name }}</td>
                             <td>{{ $user->designation }}</td>
                             <td><a href="mailto:{{ $user->email }}"><i class="fa fa-envelope"></i></a> {{ $user->email }}</td>
-                            <td><a href="https://facebook.com/{{$user->fb}}"target="_blank"><i class="fab fa-facebook-f"></i></a> {{ $user->fb }}</td>
+                            <td><a href="https://facebook.com/{{$user->fb}}"target="_blank"><i class="fa fa-facebook-f"></i></a> {{ $user->fb }}</td>
                             <td><a href="{{$user->web}}" target="_blank"><i class="fa fa-globe"></i></a> {{ $user->web }}</td>
-                            <td><a href="id/{{ $user->name }}"><i class="far fa-eye"></i></a></td>
+                            <td><a href="id/{{ $user->name }}"><i class="fa fa-eye"></i></a></td>
                             <td>
                                 <form id="delete-form-{{ $user->id }}" method="post" action="{{ route('user.destroy', $user->id) }}" style="display: none;">
                                     {{ csrf_field() }}

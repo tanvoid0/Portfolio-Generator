@@ -25,3 +25,8 @@
 <!-- Style.css -->
 <link rel="stylesheet" type="text/css" href="{{ asset('assets/admin/css/style.css') }}">
 <link rel="stylesheet" type="text/css" href="{{ asset('assets/admin/css/jquery.mCustomScrollbar.css') }}">
+
+{{--Dropify start--}}
+{{--<link rel="stylesheet" href="dist/css/demo.css">--}}
+<link rel="stylesheet" href="{{ asset('assets/portfolio/css/dropify.min.css') }}">
+{{--Dropify End--}}

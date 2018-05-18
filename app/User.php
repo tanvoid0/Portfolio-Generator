@@ -19,7 +19,7 @@
          * @var array
          */
         protected $fillable = [
-                'name', 'email', 'password',
+                'name', 'email', 'password', 'username', 'admin',
         ];
         
         /**
@@ -30,12 +30,6 @@
         protected $hidden = [
                 'password', 'remember_token',
         ];
-        
-        public function descriptions()
-        {
-            return $this->hasMany(Description::class);
-        }
-        
         
         public function experiences()
         {

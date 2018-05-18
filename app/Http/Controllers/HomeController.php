@@ -28,25 +28,31 @@ class HomeController extends Controller
     
     public function panel(){
         $user = Auth::user();
-        $panel = true;
-//        $descriptions = User::find($user->id)->descriptions;
-        $experiences = User::find($user->id)->experiences;
-        $skills = User::find($user->id)->skills;
-        $works = User::find($user->id)->works;
-        return view('portfolio.index', compact('user', 'panel', 'experiences', 'skills', 'works'));
-        $descriptions = User::find($user->id)->descriptions;
-        $experiences = User::find($user->id)->experiences;
-        $skills = User::find($user->id)->skills;
-        $works = User::find($user->id)->works;
-        return view('user.index', compact('user','descriptions', 'experiences', 'skills', 'works'));
+        if($user->admin == 0){
+            $panel = true;
+            $experiences = User::find($user->id)->experiences;
+            $skills = User::find($user->id)->skills;
+            $works = User::find($user->id)->works;
+            return view('portfolio.index', compact('user', 'panel', 'experiences', 'skills', 'works'));
+            $descriptions = User::find($user->id)->descriptions;
+            $experiences = User::find($user->id)->experiences;
+            $skills = User::find($user->id)->skills;
+            $works = User::find($user->id)->works;
+            return view('user.index', compact('user','descriptions', 'experiences', 'skills', 'works'));
+        } else {
+            $users = User::all();
+            return view('admin.dashboard', compact('users'));
+        }
 
 
     }
     
-    public function index($name){
+    public function index($username){
         $panel = false;
-        $user = User::where('name', $name)->first();
-//        $descriptions = User::find($user->id)->descriptions;
+        $user = User::where('username', $username)->first();
+        if(!$user){
+            return view('usernotfound');
+        }
         $experiences = User::find($user->id)->experiences;
         $skills = User::find($user->id)->skills;
         $works = User::find($user->id)->works;

@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-sm-12">
             <div class="card">
-                <div class="card-header">Hello Guest!</div>
+                <div class="card-header"><h2>Hello Guest!</h2></div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -14,8 +14,11 @@
                         </div>
                     @endif
 
-                    <h3>Welcome To CV Generator! <br>Please Login or register to get started!</h3>
-                    <h3>List of the Users:</h3>
+                    <h5>Welcome To CV Generator! <br>Please Login or register to get started!</h5>
+                    @if(Count($users) < 1)
+                        <p>No User Registered Yet!</p>
+                    @else
+                        <p>List of the Users:</p>
                         <table class="table table-hover table-responsive" >
                             <thead>
                             <tr>
@@ -44,19 +47,9 @@
                                 @php($i++)
                             </tr>
                             @endforeach
-                            {{--<tr>--}}
-                                {{--<th scope="row">2</th>--}}
-                                {{--<td>Jacob</td>--}}
-                                {{--<td>Thornton</td>--}}
-                                {{--<td>@fat</td>--}}
-                            {{--</tr>--}}
-                            {{--<tr>--}}
-                                {{--<th scope="row">3</th>--}}
-                                {{--<td colspan="2">Larry the Bird</td>--}}
-                                {{--<td>@twitter</td>--}}
-                            {{--</tr>--}}
                             </tbody>
                         </table>
+                    @endif
                 </div>
             </div>
         </div>

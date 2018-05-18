@@ -44,7 +44,7 @@
 				</li>
 			</ul>
 			<ul class="nav-right">
-				<li class="header-notification">
+				{{-- <li class="header-notification">
 					<a href="#!">
 						<i class="ti-bell"></i>
 						<span class="badge bg-c-pink"></span>
@@ -85,33 +85,33 @@
 							</div>
 						</li>
 					</ul>
-				</li>
+				</li> --}}
 
 				<li class="user-profile header-notification">
 					<a href="#!">
-						<img src="assets/admin/images/avatar-4.jpg" class="img-radius" alt="User-Profile-Image">
-						<span>John Doe</span>
+						<img src="{{ asset('img/user/'. $user->image) }}" class="img-radius" alt="No-Image">
+						<span>{{ $user->name }}</span>
 						<i class="ti-angle-down"></i>
 					</a>
 					<ul class="show-notification profile-notification">
-						<li>
+{{-- 						<li>
 							<a href="#!">
 								<i class="ti-settings"></i> Settings
 							</a>
-						</li>
-						<li>
+						</li> --}}
+ 						<li>
 							<a href="user-profile.html">
 								<i class="ti-user"></i> Profile
 							</a>
 						</li>
 
-						<li>
+						{{-- <li>
 							<a href="auth-lock-screen.html">
 								<i class="ti-lock"></i> Lock Screen
 							</a>
-						</li>
+						</li> --}}
 						<li>
-							<a href="auth-normal-sign-in.html">
+							<a href="{{ route('logout') }}">
 								<i class="ti-layout-sidebar-left"></i> Logout
 							</a>
 						</li>
