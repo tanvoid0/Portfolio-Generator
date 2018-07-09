@@ -18,9 +18,9 @@ class CreateExperiencesTable extends Migration
           $table->integer('user_id');
           $table->string('role');
           $table->string('company');
-          $table->integer('start_year');
-          $table->integer('end_year');
-          $table->string('description');
+          $table->integer('start_year')->nullable();
+          $table->integer('end_year')->nullable();
+          $table->text('description');
           $table->timestamps();
         });
     }

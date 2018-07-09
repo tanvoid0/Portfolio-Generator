@@ -13,7 +13,7 @@
 
 Auth::routes();
 Route::get('/', 'HomeController@home');
-Route::get('/id/{username}', 'HomeController@index')->name('index');
+Route::get('/cv/{username}', 'HomeController@index')->name('index');
 
 
 Route::get('test', function(){

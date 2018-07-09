@@ -7,6 +7,7 @@ use Auth;
 use App\User;
 use App\Skill;
 use App\Work;
+use App\Experience;
 use Carbon\Carbon;
 class HomeController extends Controller
 {
@@ -23,7 +24,10 @@ class HomeController extends Controller
     public function home()
     {
         $users = User::all();
-        return view('home', compact('users'));
+        $skills = Skill::distinct()->get();
+        $works = Work::distinct()->get();
+        $experiences = Experience::get();
+        return view('home.home', compact('users', 'skills', 'works', 'experiences'));
     }
     
     public function panel(){
