@@ -56,6 +56,11 @@
         @include('portfolio.pages.about')
         <!-- End About -->
 
+        <!-- Education -->
+        @include('portfolio.pages.education')
+        <!-- End About -->
+
+
         <!-- Experience -->
         @include('portfolio.pages.experience')
         <!-- End Experience -->

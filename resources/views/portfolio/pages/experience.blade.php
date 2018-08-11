@@ -29,12 +29,21 @@
 																		</div>
 																		<div class="service-info">
 																				<h3>{{ $experience->role }}</h3>
-																				<h5>{{$experience->start_year}} - {{$experience->end_year}}</h5>
+																				<h5>
+                                                                                    {{$experience->start_year}}
+                                                                                    -
+                                                                                    @if($experience->end_year == 0)
+                                                                                        Present
+                                                                                    @else
+                                                                                        {{$experience->end_year}}
+                                                                                    @endif
+                                                                                </h5>
+
 																				<p class="margin-b-5">{{ $experience->company}}</p>
 																		</div>
 
 																	@if($panel)
-																	<button type="button" class="btn btn-default"><i class="glyphicon glyphicon-pencil"  data-toggle="modal" data-target="#exp-edit-{{ $experience->id }}"></i></button>
+																	<button type="button" class="btn btn-default" data-toggle="modal" data-target="#exp-edit-{{ $experience->id }}"><i class="glyphicon glyphicon-pencil"></i></button>
 
 																	<div class="modal fade" id="exp-edit-{{ $experience->id }}" tabindex="-1" role="dialog" aria-labelledby="exp-edit-{{ $experience->id }}Label" aria-hidden="true">
 																		<div class="modal-dialog" role="document">
@@ -70,7 +79,7 @@
 																								<div class="form-group">
 																									<label for="start_year">Start Year</label>
 																									<select  class="form-control" name="start_year" id="start_year" >
-																										@for($i= 2018; $i >=1950; $i--)
+																										@for($i= (int)date("Y"); $i >=1950; $i--)
 																											<option value="{{ $i }}"
 																												@if($i == $experience->start_year)
 																													selected
@@ -83,7 +92,12 @@
 																								<div class="form-group">
 																									<label for="end_year">End Year</label>
 																									<select  class="form-control" name="end_year" id="end_year" >
-																										@for($i= 2018; $i >=1950; $i--)
+																										<option value="0"
+																												@if($experience->end_year == 0)
+																													selected
+																												@endif
+                                                                                                        >Present</option>
+																										@for($i= (int)date("Y"); $i >=1950; $i--)
 																											<option value="{{ $i }}"
 																												@if($i == $experience->end_year)
 																													selected

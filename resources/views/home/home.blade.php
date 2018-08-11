@@ -38,7 +38,7 @@
 
 	@include('home.pages.portfolio')
 
-	<!-- @include('home.pages.team') -->
+	{{--@include('home.pages.team')--}}
 
 	@include('home.pages.contact')
 

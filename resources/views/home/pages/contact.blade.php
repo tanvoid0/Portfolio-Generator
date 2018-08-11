@@ -5,11 +5,11 @@
     <div class="container wow fadeInUp">
         <div class="section-header">
             <h3 class="section-title">Contact</h3>
-            <p class="section-description">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque</p>
+            <p class="section-description">Please feel free to ask, your query will be mailed to us!</p>
         </div>
     </div>
 
-    <div id="google-map" data-latitude="40.713732" data-longitude="-74.0092704"></div>
+    {{--<div id="google-map" data-latitude="40.713732" data-longitude="-74.0092704"></div>--}}
 
     <div class="container wow fadeInUp">
         <div class="row justify-content-center">
@@ -47,7 +47,8 @@
                 <div class="form">
                     <div id="sendmessage">Your message has been sent. Thank you!</div>
                     <div id="errormessage"></div>
-                    <form action="" method="post" role="form" class="contactForm">
+                    <form action="{{ route('mail') }}" method="post" role="form" class="contactForm">
+                        {{ csrf_field() }}
                         <div class="form-group">
                             <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
                             <div class="validation"></div>
@@ -64,7 +65,10 @@
                             <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
                             <div class="validation"></div>
                         </div>
-                        <div class="text-center"><button type="submit">Send Message</button></div>
+                        <div class="form-group text-center">
+                            <input type="submit" value="Send Message" class="">
+                        </div>
+                        {{--<div class="text-center"><button type="submit">Send Message</button></div>--}}
                     </form>
                 </div>
             </div>

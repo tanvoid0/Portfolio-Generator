@@ -30,7 +30,13 @@
         protected $hidden = [
                 'password', 'remember_token',
         ];
-        
+
+
+        public function educations()
+        {
+            return $this->hasMany(Education::class);
+        }
+
         public function experiences()
         {
             return $this->hasMany(Experience::class);
