@@ -1,10 +1,10 @@
 <!--==========================
   Portfolio Section
 ============================-->
-<section id="portfolio">
+<section id="profile">
     <div class="container wow fadeInUp">
         <div class="section-header">
-            <h3 class="section-title">Portfolio</h3>
+            <h3 class="section-title">Some Profiles</h3>
             <p class="section-description">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque</p>
         </div>
         <div class="row">
@@ -34,13 +34,14 @@
         </div>
 
         <div class="row" id="portfolio-wrapper">
-            @foreach($projects as $project)
+            @foreach($profiles as $profile)
             <div class="col-lg-3 col-md-6"  style="padding: 20px;">
                 {{--<a href="">--}}
-                    <img src="{{ asset('img/work/'.$project->image) }}" alt="" style="width:100%; height: 230px;">
-                    <div class="details" >
-                        <h4>{{ $project->title }}</h4>
-                        <span>{{ $project->category }}</span>
+                    <img src="{{ asset('img/user/'.$profile->image) }}" alt="No image" style="width:100%; height: 230px;">
+                    <div class="details">
+                        <h4>{{ $profile->name }}</h4>
+                        <span>{{ $profile->designation }}</span>
+                        <div class="text-center"><a href="{{url('/portfolio/'.$profile->username)}}" target="_blank" ><button type="submit" class="btn btn-primary btn-info">View Profile</button></a></div>
                     </div>
                 {{--</a>--}}
             </div>

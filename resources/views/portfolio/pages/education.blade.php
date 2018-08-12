@@ -33,24 +33,33 @@
                                             <p class="margin-b-5">{{ $education->institution}}</p>
                                         </div>
 
-                                        @if($panel)
-                                            <!-- Button to Open the Modal -->
-                                                {{--<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">--}}
-                                                    {{--Open modal--}}
-                                                {{--</button>--}}
-                                                <button type="button" class="btn btn-default"  data-toggle="modal" data-target="#edu-edit-{{ $education->id }}"><i class="glyphicon glyphicon-pencil"></i></button>
+                                    @if($panel)
+                                        <!-- Button to Open the Modal -->
+                                            {{--<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">--}}
+                                            {{--Open modal--}}
+                                            {{--</button>--}}
+                                            <button type="button" class="btn btn-default" data-toggle="modal"
+                                                    data-target="#edu-edit-{{ $education->id }}"><i
+                                                        class="glyphicon glyphicon-pencil"></i></button>
 
 
-                                            <div class="modal fade" id="edu-edit-{{ $education->id }}" tabindex="-1" role="dialog" aria-labelledby="edu-edit-{{ $education->id }}Label" aria-hidden="true">
+                                            <div class="modal fade" id="edu-edit-{{ $education->id }}" tabindex="-1"
+                                                 role="dialog" aria-labelledby="edu-edit-{{ $education->id }}Label"
+                                                 aria-hidden="true">
                                                 <div class="modal-dialog" role="document">
                                                     <div class="modal-content">
                                                         <div class="modal-header">
-                                                            <h5 class="modal-title" id="edu-edit-{{ $education->id }}Label">Edit Education</h5>
-                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                            <h5 class="modal-title"
+                                                                id="edu-edit-{{ $education->id }}Label">Edit
+                                                                Education</h5>
+                                                            <button type="button" class="close" data-dismiss="modal"
+                                                                    aria-label="Close">
                                                                 <span aria-hidden="true">&times;</span>
                                                             </button>
                                                         </div>
-                                                        <form role="form" action="{{ route('education.update', $education->id) }}" method="post">
+                                                        <form role="form"
+                                                              action="{{ route('education.update', $education->id) }}"
+                                                              method="post">
                                                             {{ csrf_field() }}
                                                             {{ method_field('PUT') }}
 
@@ -58,38 +67,56 @@
                                                                 <div class="box-body">
                                                                     <div class="form-group">
                                                                         <label for="degree">Degree</label>
-                                                                        <input type="text" class="form-control" id="degree" name="degree" placeholder="Degree" value="{{ $education->degree }}">
+                                                                        <input type="text" class="form-control"
+                                                                               id="degree" name="degree"
+                                                                               placeholder="Degree"
+                                                                               value="{{ $education->degree }}">
                                                                     </div>
 
                                                                     <div class="form-group">
                                                                         <label for="institution">Institution</label>
-                                                                        <input type="text" class="form-control" id="institution" name="institution" placeholder="Institution" value="{{ $education->institution }}">
+                                                                        <input type="text" class="form-control"
+                                                                               id="institution" name="institution"
+                                                                               placeholder="Institution"
+                                                                               value="{{ $education->institution }}">
                                                                     </div>
 
                                                                     <div class="form-group">
                                                                         <label for="gpa">GPA</label>
-                                                                        <input type="number" step="any" class="form-control" id="gpa" name="gpa" placeholder="GPA" value="{{ $education->gpa }}">
+                                                                        <input type="number" step="any"
+                                                                               class="form-control" id="gpa" name="gpa"
+                                                                               placeholder="GPA"
+                                                                               value="{{ $education->gpa }}">
                                                                     </div>
 
                                                                     <div class="form-group">
                                                                         <label for="scale">Scale</label>
-                                                                        <input type="number" step="any" class="form-control" id="scale" name="scale" placeholder="scale" value="{{ $education->scale }}">
+                                                                        <input type="number" step="any"
+                                                                               class="form-control" id="scale"
+                                                                               name="scale" placeholder="scale"
+                                                                               value="{{ $education->scale }}">
                                                                     </div>
 
                                                                     <div class="form-group">
                                                                         <label for="institution">Institution</label>
-                                                                        <input type="text" class="form-control" id="institution" name="institution" placeholder="Institution" value="{{ $education->institution }}">
+                                                                        <input type="text" class="form-control"
+                                                                               id="institution" name="institution"
+                                                                               placeholder="Institution"
+                                                                               value="{{ $education->institution }}">
                                                                     </div>
 
 
                                                                     <div class="form-group">
                                                                         <label for="description">Description</label>
-                                                                        <textarea class="form-control" maxlength="30" id="description" name="description" placeholder="Description">{{ $education->description }}</textarea>
+                                                                        <textarea class="form-control" maxlength="300"
+                                                                                  id="description" name="description"
+                                                                                  placeholder="Description">{{ $education->description }}</textarea>
                                                                     </div>
 
                                                                     <div class="form-group">
                                                                         <label for="start_year">Start Year</label>
-                                                                        <select  class="form-control" name="start_year" id="start_year" >
+                                                                        <select class="form-control" name="start_year"
+                                                                                id="start_year">
                                                                             @for($i= (int)date("Y"); $i >=1950; $i--)
                                                                                 <option value="{{ $i }}"
                                                                                         @if($i == $education->start_year)
@@ -102,7 +129,8 @@
 
                                                                     <div class="form-group">
                                                                         <label for="end_year">End Year</label>
-                                                                        <select  class="form-control" name="end_year" id="end_year" >
+                                                                        <select class="form-control" name="end_year"
+                                                                                id="end_year">
                                                                             @for($i= (int)date("Y") + 6; $i >=1950; $i--)
                                                                                 <option value="{{ $i }}"
                                                                                         @if($i == $education->end_year)
@@ -117,11 +145,14 @@
                                                                 <!-- /.box-body -->
 
 
-
                                                             </div>
                                                             <div class="modal-footer">
-                                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                                                <button type="submit" class="btn btn-primary">Save changes</button>
+                                                                <button type="button" class="btn btn-secondary"
+                                                                        data-dismiss="modal">Close
+                                                                </button>
+                                                                <button type="submit" class="btn btn-primary">Save
+                                                                    changes
+                                                                </button>
                                                             </div>
                                                         </form>
 
@@ -129,19 +160,22 @@
                                                 </div>
                                             </div>
 
-                                            <form id="delete-form-{{ $education->id }}" method="post" action="{{ route('education.destroy', $education->id) }}" style="display: none;">
+                                            <form id="delete-form-{{ $education->id }}" method="post"
+                                                  action="{{ route('education.destroy', $education->id) }}"
+                                                  style="display: none;">
                                                 {{ csrf_field() }}
                                                 {{ method_field('DELETE') }}
                                             </form>
 
-                                            <a  onclick="
+                                            <a onclick="
                                                     if(confirm('Are you sure, you want to delete this?')){
                                                     event.preventDefault();
                                                     document.getElementById('delete-form-{{ $education->id }}').submit();
                                                     } else {
                                                     event.preventDefault();
                                                     }
-                                                    "><button class="btn btn-default"><i class="icon-trash"></i></button>
+                                                    ">
+                                                <button class="btn btn-default"><i class="icon-trash"></i></button>
                                             </a>
 
                                         @endif
@@ -155,9 +189,12 @@
                     </div>
                     <!--// end row -->
                     @if($panel)
-                        <button type="button" class="btn btn-default" data-toggle="modal" data-target="#edu-add"><i class="glyphicon glyphicon-plus"></i> Add Education</button>
+                        <button type="button" class="btn btn-default" data-toggle="modal" data-target="#edu-add"><i
+                                    class="glyphicon glyphicon-plus"></i> Add Education
+                        </button>
                         <!-- Modal -->
-                        <div class="modal fade" id="edu-add" tabindex="-1" role="dialog" aria-labelledby="edu-addLabel" aria-hidden="true">
+                        <div class="modal fade" id="edu-add" tabindex="-1" role="dialog" aria-labelledby="edu-addLabel"
+                             aria-hidden="true">
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header">
@@ -171,25 +208,40 @@
                                         <div class="modal-body">
                                             <div class="box-body">
                                                 <div class="form-group">
-                                                    <label for="role">Role</label>
-                                                    <input type="text" class="form-control" id="role" name="role" placeholder="Role" value="{{ old('role') }}">
+                                                    <label for="degree">Degree</label>
+                                                    <input type="text" class="form-control" id="degree" name="degree"
+                                                           placeholder="Degree" value="">
                                                 </div>
 
                                                 <div class="form-group">
-                                                    <label for="company">Company</label>
-                                                    <input type="text" class="form-control" id="company" name="company" placeholder="Company" value="{{ old('company') }}">
+                                                    <label for="institution">Institution</label>
+                                                    <input type="text" class="form-control" id="institution"
+                                                           name="institution" placeholder="Institution" value="">
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label for="gpa">GPA</label>
+                                                    <input type="number" step="any" class="form-control" id="gpa"
+                                                           name="gpa" placeholder="GPA" value="">
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label for="scale">Scale</label>
+                                                    <input type="number" step="any" class="form-control" id="scale"
+                                                           name="scale" placeholder="scale" value="">
                                                 </div>
 
 
                                                 <div class="form-group">
                                                     <label for="description">Description</label>
-                                                    <textarea class="form-control" id="description" maxlength="30" name="description" placeholder="Description">{{ old('description') }}</textarea>
+                                                    <textarea class="form-control" maxlength="300" id="description"
+                                                              name="description" placeholder="Description"></textarea>
                                                 </div>
 
                                                 <div class="form-group">
                                                     <label for="start_year">Start Year</label>
-                                                    <select  class="form-control" name="start_year" id="start_year" >
-                                                        @for($i= 2018; $i >=1950; $i--)
+                                                    <select class="form-control" name="start_year" id="start_year">
+                                                        @for($i= (int)date("Y"); $i >=1950; $i--)
                                                             <option value="{{ $i }}">{{ $i }}</option>
                                                         @endfor
                                                     </select>
@@ -197,20 +249,21 @@
 
                                                 <div class="form-group">
                                                     <label for="end_year">End Year</label>
-                                                    <select  class="form-control" name="end_year" id="end_year" >
-                                                        @for($i= 2018; $i >=1950; $i--)
+                                                    <select class="form-control" name="end_year" id="end_year">
+                                                        @for($i= (int)date("Y") + 6; $i >=1950; $i--)
                                                             <option value="{{ $i }}">{{ $i }}</option>
                                                         @endfor
-                                                    </select>																	</div>
+                                                    </select>
+                                                </div>
                                             </div>
-
-                                            <!-- /.box-body -->
-
-
-
                                         </div>
+
+                                        <!-- /.box-body -->
+
+
                                         <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close
+                                            </button>
                                             <button type="submit" class="btn btn-primary">Save changes</button>
                                         </div>
                                     </form>

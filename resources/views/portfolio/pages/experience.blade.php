@@ -73,7 +73,7 @@
 
 																								<div class="form-group">
 																									<label for="description">Description</label>
-																									<textarea class="form-control" maxlength="30" id="description" name="description" placeholder="Description">{{ $experience->description }}</textarea>
+																									<textarea class="form-control" maxlength="300" id="description" name="description" placeholder="Description">{{ $experience->description }}</textarea>
 																								</div>
 
 																								<div class="form-group">
@@ -177,7 +177,7 @@
 
 																	<div class="form-group">
 																		<label for="description">Description</label>
-																		<textarea class="form-control" id="description" maxlength="30" name="description" placeholder="Description">{{ old('description') }}</textarea>
+																		<textarea class="form-control" id="description" maxlength="300" name="description" placeholder="Description">{{ old('description') }}</textarea>
 																	</div>
 
 																	<div class="form-group">

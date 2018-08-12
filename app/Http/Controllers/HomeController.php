@@ -9,7 +9,9 @@ use App\User;
 use App\Skill;
 use App\Work;
 use App\Experience;
-use Carbon\Carbon;
+use Mail;
+use Session;
+
 class HomeController extends Controller
 {
     /**
@@ -25,13 +27,15 @@ class HomeController extends Controller
     public function home()
     {
         $users = User::all();
+        $profiles = User::inRandomOrder()->limit(3)->get();
+//        return $profiles;
         $skills = Skill::distinct()->get();
         $works = Work::distinct()->get();
         $experiences = Experience::get();
         $categories = Work::inRandomOrder()->limit(3)->distinct('category')->pluck('category');
         $projects = Work::whereIn('category', $categories)->limit(9)->get();
 //        return $projects;
-        return view('home.home', compact('users', 'skills', 'works', 'experiences', 'categories', 'projects'));
+        return view('home.home', compact('users', 'profiles', 'skills', 'works', 'experiences', 'categories', 'projects'));
     }
     
     public function panel(){
@@ -75,8 +79,11 @@ class HomeController extends Controller
         return view('admin.dashboard', compact('users'));
     }
 
-    public function mail()
+    public function mail(Request $request)
     {
-        Mail::to('dev.tanveer.me')->send(new ContactMail());
+//        return 'working';
+        Mail::to('thaque20@gmail.com')->send(new ContactMail($request));
+        Session::flash('message', 'Your message has been mailed!');
+        return redirect()->back();
     }
 }

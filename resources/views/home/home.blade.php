@@ -11,12 +11,11 @@
 @include('home.pages.intro')
 
 <main id="main">
-
 	@include('home.pages.about')
 
 	@include('home.pages.facts')
 
-	@include('home.pages.services')
+{{--	@include('home.pages.services')--}}
 
 	<!--==========================
     Call To Action Section
@@ -37,6 +36,7 @@
 	{{--</section><!-- #call-to-action -->--}}
 
 	@include('home.pages.portfolio')
+	@include('home.pages.profile')
 
 	{{--@include('home.pages.team')--}}
 

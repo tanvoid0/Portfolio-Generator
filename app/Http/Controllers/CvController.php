@@ -110,9 +110,10 @@ class CvController extends Controller
 
 //        $data = ['title' => 'Welcome to HDTuto.com'];
 //        return view('cv.index',  compact('user', 'educations', 'experiences', 'skills', 'works'));
-        $pdf = PDF::loadView('cv.index', compact('user', 'educations', 'experiences', 'skills', 'works'));
-//        $pdf = PDF::loadView('cv.index', compact('user', 'educations', 'experiences', 'skills', 'works'));
 
+//        return view('cv.includes.app', compact('user', 'educations', 'experiences', 'skills', 'works'));
+        $pdf = PDF::loadView('cv.index', compact('user', 'educations', 'experiences', 'skills', 'works'));
+//        $pdf = PDF::loadView('404', compact('user', 'educations', 'experiences', 'skills', 'works'));
 
         return $pdf->download('cv.pdf');
     }

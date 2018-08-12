@@ -95,6 +95,26 @@ class UserController extends Controller
         if($request->description != ""){
             $user->description = $request->description;
         }
+        if($request->address != ""){
+            $user->address = $request->address;
+        }
+        if($request->phone != ""){
+            $user->phone = $request->phone;
+        }
+        if($request->email != ""){
+            $user->email = $request->email;
+        }
+        if($request->web != ""){
+            $user->web = $request->web;
+        }
+        if($request->fb != ""){
+            $user->fb = $request->fb;
+        }
+        if($request->fb != ""){
+            $user->fb = $request->fb;
+        }
+
+
 //        $user->dob = $request->dob;
 //        $user->phone = $request->phone;
 //        $user->address = $request->address;

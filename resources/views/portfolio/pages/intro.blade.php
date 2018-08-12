@@ -23,6 +23,7 @@
 								<ul class="list-inline">
 										<li><a href="{{ $user->web }}" target="_blank" class="social-icons"><i class="icon-globe"></i></a></li>
 										<li><a href="https://facebook.com/{{ $user->fb }}" target="_blank" class="social-icons"><i class="icon-social-facebook"></i></a></li>
+                                        <li><a href="{{ route('cv.show', $user->username) }}" target="_blank" class="social-icons"><i class="icon-doc"></i></a></li>
 								</ul>
 						</div>
 				</div>
@@ -73,6 +74,24 @@
                                         <label for="designation" class="">Designation</label>
                                         <input type="text" class="form-control" id="designation" name="designation" placeholder="Designation"
                                                value="{{ $user->designation }}">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="username" class="">Username</label>
+                                        <input type="text" class="form-control" id="username" name="username" placeholder="Username"
+                                               value="{{ $user->username }}">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="fb" class="">Facebook Account</label>
+                                        <input type="text" class="form-control" id="fb" name="fb" placeholder="Facebook Account"
+                                               value="{{ $user->fb }}">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="web" class="">Web</label>
+                                        <input type="text" class="form-control" id="web" name="web" placeholder="Web"
+                                               value="{{ $user->web }}">
                                     </div>
                                 </div>
                         </div>
