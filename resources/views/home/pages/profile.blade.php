@@ -46,6 +46,7 @@
                 {{--</a>--}}
             </div>
             @endforeach
+
             {{----}}
             {{--<div class="col-lg-3 col-md-6 portfolio-item filter-app">--}}
                 {{--<a href="">--}}
@@ -168,6 +169,5 @@
             {{--</div>--}}
 
         </div>
-
-    </div>
+        <div class="text-center"><a href="{{ url('/user') }}"><button type="submit" class="btn btn-primary btn-success btn-circle btn-lg">Talent Hunt <i class="fa fa-search-plus"></i></button></a></div>
 </section><!-- #portfolio -->

@@ -32,7 +32,7 @@
             <div class="row">
                 <div class="col-sm-6 btn-group">
                     <button type="button" class="btn btn-default" data-toggle="modal" data-target="#intro-update"><i class="glyphicon glyphicon-pencil"></i>  Edit Intro</button>
-                    <a href="{{route('index', $user->name)}}" target="_blank">
+                    <a href="{{route('index', $user->username)}}" target="_blank">
                         <button class="btn btn-default" type="button"><i class="glyphicon glyphicon-eye"></i> Public profile</button>
                     </a>
                 </div>

@@ -17,6 +17,7 @@ Auth::routes();
 
 // Index
 Route::get('/', 'HomeController@home');
+Route::get('/user', 'UserController@index');
 Route::get('/portfolio/{username}', 'HomeController@index')->name('index');
 Route::post('/mail', 'HomeController@mail')->name('mail');
 // Testing raw code
