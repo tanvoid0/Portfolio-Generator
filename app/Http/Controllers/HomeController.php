@@ -42,8 +42,8 @@ class HomeController extends Controller
         $user = Auth::user();
         if($user->admin == 0){
             $panel = true;
-            $educations = User::find($user->id)->educations;
-            $experiences = User::find($user->id)->experiences;
+            $educations = User::find($user->id)->educationsOrdered;
+            $experiences = User::find($user->id)->experiencesOrdered;
             $skills = User::find($user->id)->skills;
             $works = User::find($user->id)->works;
             return view('portfolio.index', compact('user', 'panel', 'educations', 'experiences', 'skills', 'works'));

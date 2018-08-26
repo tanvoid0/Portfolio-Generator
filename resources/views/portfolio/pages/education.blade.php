@@ -28,9 +28,9 @@
                                             {{--<i class="service-icon icon-chemistry"></i>--}}
                                         </div>
                                         <div class="service-info">
+                                            <h2 class="margin-b-5" style="color: #17a2b8">{{ $education->institution}}</h2>
+                                            <p>{{$education->start_year}} - {{$education->end_year}}</p>
                                             <h3>{{ $education->degree }}</h3>
-                                            <h5>{{$education->start_year}} - {{$education->end_year}}</h5>
-                                            <p class="margin-b-5">{{ $education->institution}}</p>
                                         </div>
 
                                     @if($panel)

@@ -46,7 +46,7 @@
                                                         <textarea class="form-control"
                                                                id="description" name="description"
                                                                placeholder="Write Something About Yourself"
-                                                                  minlength="10" maxlength="150">{{ $user->description }}</textarea>
+                                                                  minlength="10" maxlength="">{{ $user->description }}</textarea>
                                                     </div>
                                                 </div>
                                                 <div class="modal-footer">

@@ -16,7 +16,7 @@ use Carbon\Carbon;
 Auth::routes();
 
 // Index
-Route::get('/', 'HomeController@home');
+Route::get('/', 'HomeController@home')->name('home');
 Route::get('/user', 'UserController@index');
 Route::get('/portfolio/{username}', 'HomeController@index')->name('index');
 Route::post('/mail', 'HomeController@mail')->name('mail');

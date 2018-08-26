@@ -26,7 +26,6 @@
                                                 <img class="card-img-top"
                                                      src="{{ asset('img/work/'.$work->image) }}"
                                                      alt="No Image!" style="width:100%; height: 230px;">
-                                                {{ $work->image }}
                                                 <!-- Card content -->
                                                 <div class="card-body">
 

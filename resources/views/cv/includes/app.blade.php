@@ -23,7 +23,7 @@
                     {{--<li>e: <a href="mailto:joe@bloggs.com" target="_blank">joe@bloggs.com</a></li>--}}
                     {{--<li>w: <a href="http://www.bloggs.com">www.bloggs.com</a></li>--}}
                     {{--<li>m: 01234567890</li>--}}
-                    <a href="{{ route('cv-download', $user->id) }}">Download</a>
+{{--                    <a href="{{ route('cv-download', $user->id) }}">Download</a>--}}
                     @if($user->email)
                         <li>email: <a href="mailto:{{ $user->email }}" target="_blank">{{ $user->email }}</a></li>
                     @endif
@@ -129,7 +129,6 @@
                             <h2>{{ $education->institution }}</h2>
                             <p class="subDetails">{{ $education->degree }}</p>
                             <p class="subDetails">{{ $education->start_year }} - {{ $education->end_year }}</p>
-
                             <p>{{ $education->description }}</p>
                         </article>
                     @endforeach

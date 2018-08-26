@@ -1,4 +1,5 @@
-<title>{{ $user->name }} CV</title>
+<title> CV</title>
+{{--<title>{{ $user->name }} CV</title>--}}
 
 <meta name="viewport" content="width=device-width"/>
 <meta name="description" content="The Curriculum Vitae of Joe Bloggs."/>

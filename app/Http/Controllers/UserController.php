@@ -127,7 +127,7 @@ class UserController extends Controller
 //        $user->username = $request->username;
         $user->save();
         session (['msg' => "Bio Has Been ", "action" => "Updated", "type" => "info"]);
-        return redirect(route('dashboard'));
+        return redirect()->back();
     }
 
     /**

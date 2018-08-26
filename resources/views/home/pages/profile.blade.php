@@ -4,8 +4,8 @@
 <section id="profile">
     <div class="container wow fadeInUp">
         <div class="section-header">
-            <h3 class="section-title">Some Profiles</h3>
-            <p class="section-description">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque</p>
+            <h3 class="section-title">Profile</h3>
+            <p class="section-description">Some random users of AirCV! View their Portfolio & CV to find best of the best!</p>
         </div>
         <div class="row">
 
@@ -170,4 +170,6 @@
 
         </div>
         <div class="text-center"><a href="{{ url('/user') }}"><button type="submit" class="btn btn-primary btn-success btn-circle btn-lg">Talent Hunt <i class="fa fa-search-plus"></i></button></a></div>
+        <br>
+    </div>
 </section><!-- #portfolio -->

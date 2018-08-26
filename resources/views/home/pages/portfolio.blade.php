@@ -5,7 +5,7 @@
     <div class="container wow fadeInUp">
         <div class="section-header">
             <h3 class="section-title">Portfolio</h3>
-            <p class="section-description">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque</p>
+            <p class="section-description">Show case of some random projects</p>
         </div>
         <div class="row">
 

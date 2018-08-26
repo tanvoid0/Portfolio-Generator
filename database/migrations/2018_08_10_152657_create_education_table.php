@@ -22,7 +22,7 @@ class CreateEducationTable extends Migration
             $table->integer('end_year')->nullable();
             $table->float('gpa')->nullable();
             $table->float('scale')->nullable();
-            $table->text('description');
+            $table->text('description')->nullable();
             $table->timestamps();
         });
     }

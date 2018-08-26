@@ -19,7 +19,7 @@
               Licensing information: https://bootstrapmade.com/license/
               Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=Regna
             -->
-            Designed by <a href="http://tanveer.cf/">Tanveer Hoque</a>
+            Developed by <a href="http://tanveer.cf/">Tanveer Hoque</a>
         </div>
     </div>
 </footer><!-- #footer -->

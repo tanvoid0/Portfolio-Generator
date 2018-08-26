@@ -5,7 +5,7 @@
     <div class="container wow fadeIn">
         <div class="section-header">
             <h3 class="section-title">Facts</h3>
-            <p class="section-description">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque</p>
+            <p class="section-description">Details that matters a lot!!</p>
         </div>
         <div class="row counters">
 
@@ -25,8 +25,8 @@
             </div>
 
             <div class="col-lg-3 col-6 text-center">
-                <span data-toggle="counter-up">15</span>
-                <p>Hard Workers</p>
+                <span data-toggle="counter-up">5</span>
+                <p>Developers & Moderators</p>
             </div>
 
         </div>

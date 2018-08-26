@@ -28,7 +28,8 @@
                         <th class="col">Email</th>
                         <th class="col">Facebook</th>
                         <th class="col">Web</th>
-                        <th class="col">AirCV</th>
+                        <th class="col">Portfolio</th>
+                        <th class="col">CV</th>
                         <th class="col">Remove</th>
 
                     </tr>
@@ -41,10 +42,11 @@
                             <td><img class="img-thumbnail" src="{{ asset('img/user/'. $user->image) }}" alt="No Image" style="width: 100px;"></td>
                             <td>{{ $user->name }}</td>
                             <td>{{ $user->designation }}</td>
-                            <td><a href="mailto:{{ $user->email }}"><i class="fa fa-envelope"></i></a> {{ $user->email }}</td>
-                            <td><a href="https://facebook.com/{{$user->fb}}"target="_blank"><i class="fa fa-facebook-f"></i></a> {{ $user->fb }}</td>
-                            <td><a href="{{$user->web}}" target="_blank"><i class="fa fa-globe"></i></a> {{ $user->web }}</td>
-                            <td><a href="id/{{ $user->name }}"><i class="fa fa-eye"></i></a></td>
+                            <td><a href="mailto:{{ $user->email }}"><i class="fa fa-envelope"></i>  {{ $user->email }}</a></td>
+                            <td><a href="https://facebook.com/{{$user->fb}}"target="_blank"><i class="fa fa-facebook-f"></i> {{ $user->fb }}</a></td>
+                            <td><a href="{{$user->web}}" target="_blank"><i class="fa fa-globe"></i> {{ $user->web }}</a></td>
+                            <td><a href="portfolio/{{ $user->username }}" target="_blank"><i class="fa fa-eye"></i></a></td>
+                            <td><a href="{{ url('cv/'.$user->username) }}" target="_blank"><i class="fa fa-book"></i></a></td>
                             <td>
                                 <form id="delete-form-{{ $user->id }}" method="post" action="{{ route('user.destroy', $user->id) }}" style="display: none;">
                                     {{ csrf_field() }}

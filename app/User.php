@@ -37,11 +37,20 @@
             return $this->hasMany(Education::class);
         }
 
+        public function educationsOrdered()
+        {
+            return $this->educations()->orderByDesc('end_year');
+        }
+
         public function experiences()
         {
             return $this->hasMany(Experience::class);
         }
-        
+
+        public function experiencesOrdered()
+        {
+            return $this->experiences()->orderByDesc('end_year');
+        }
         
         public function skills()
         {

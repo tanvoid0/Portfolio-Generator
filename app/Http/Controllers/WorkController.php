@@ -52,6 +52,8 @@ class WorkController extends Controller
             $file = Input::file('image');
             $file->move('img/work/', $file->getClientOriginalName());
             $work->image = $file->getClientOriginalName();
+        } else {
+            $work->image = 'work.jpg';
         }
         $work->category = $request->category;
         $work->description = $request->description;

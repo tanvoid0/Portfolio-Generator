@@ -27,6 +27,7 @@
         <script src="{{ asset('assets/portfolio/js/dropify.min.js') }}"></script>
         <script>
             $(document).ready(function(){
+                // alert($.fn.tooltip.Constructor.VERSION)
                 // Basic
                 $('.dropify').dropify();
 

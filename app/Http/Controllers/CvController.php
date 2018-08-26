@@ -96,12 +96,13 @@ class CvController extends Controller
     }
 
     public function download($id){
-
+        ini_set('max_execution_time', 300);
         $user = User::find($id);
         $educations = User::find($user->id)->educations;
         $experiences = User::find($user->id)->experiences;
         $skills = User::find($user->id)->skills;
         $works = User::find($user->id)->works;
+        $pdf = PDF::loadView('cv.index', compact('user'));
 ////        return 'done';
 //        $pdf = \PDF::loadView('404', compact('user', 'educations', 'experiences', 'skills', 'works'));
 //        return $pdf->downlaod('cv.pdf');
@@ -112,7 +113,7 @@ class CvController extends Controller
 //        return view('cv.index',  compact('user', 'educations', 'experiences', 'skills', 'works'));
 
 //        return view('cv.includes.app', compact('user', 'educations', 'experiences', 'skills', 'works'));
-        $pdf = PDF::loadView('cv.index', compact('user', 'educations', 'experiences', 'skills', 'works'));
+//        $pdf = PDF::loadView('cv.index', compact('user', 'educations', 'experiences', 'skills', 'works'));
 //        $pdf = PDF::loadView('404', compact('user', 'educations', 'experiences', 'skills', 'works'));
 
         return $pdf->download('cv.pdf');
