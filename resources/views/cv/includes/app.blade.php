@@ -7,7 +7,8 @@
     <div id="cv" class="instaFade">
         <div class="mainDetails">
             <div id="headshot" class="quickFade">
-                <img src="{{ asset('assets/cv/headshot.jpg') }}" alt="Alan Smith"/>
+                {{--<img src="{{ asset('assets/cv/headshot.jpg') }}" alt="Alan Smith"/>--}}
+                <img src="{{ asset('img/user/'.$user->image) }}" alt="No Image"/>
             </div>
 
             <div id="name">
@@ -23,7 +24,7 @@
                     {{--<li>e: <a href="mailto:joe@bloggs.com" target="_blank">joe@bloggs.com</a></li>--}}
                     {{--<li>w: <a href="http://www.bloggs.com">www.bloggs.com</a></li>--}}
                     {{--<li>m: 01234567890</li>--}}
-{{--                    <a href="{{ route('cv-download', $user->id) }}">Download</a>--}}
+                    <button onclick="download()" id="download_btn">Download CV</button>
                     @if($user->email)
                         <li>email: <a href="mailto:{{ $user->email }}" target="_blank">{{ $user->email }}</a></li>
                     @endif

@@ -6,4 +6,13 @@
     var pageTracker = _gat._getTracker("UA-3753241-1");
     pageTracker._initData();
     pageTracker._trackPageview();
+
+    function download() {
+        var download_btn = document.getElementById('download_btn');
+        download_btn.parentNode.removeChild(download_btn);
+        window.print();
+        window.onafterprint = function() {
+            window.location.reload(true);
+        };
+    }
 </script>
