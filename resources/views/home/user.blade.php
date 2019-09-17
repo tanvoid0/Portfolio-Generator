@@ -68,7 +68,7 @@
                 @foreach($users as $user)
                     <tr>
                         <td>
-                            <img src="{{ asset('img/user/'.$user->image) }}" alt="" class="img-thumbnail">
+                            <img src="{{ $user->image }}" alt="" class="img-thumbnail">
                         </td>
                         <td>{{ $user->name }}</td>
                         <td>{{ $user->designation }}</td>

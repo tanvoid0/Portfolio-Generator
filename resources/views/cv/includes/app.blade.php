@@ -8,7 +8,7 @@
         <div class="mainDetails">
             <div id="headshot" class="quickFade">
                 {{--<img src="{{ asset('assets/cv/headshot.jpg') }}" alt="Alan Smith"/>--}}
-                <img src="{{ asset('img/user/'.$user->image) }}" alt="No Image"/>
+                <img src="{{ substr($user->image, 0,4) != "http"? asset($user->image) : $user->image  }}" alt="No Image"/>
             </div>
 
             <div id="name">

@@ -51,7 +51,7 @@ class WorkController extends Controller
         if(Input::hasFile('image')){
             $file = Input::file('image');
             $file->move('img/work/', $file->getClientOriginalName());
-            $work->image = $file->getClientOriginalName();
+            $work->image = 'img/work/'.$file->getClientOriginalName();
         } else {
             $work->image = 'work.jpg';
         }
@@ -105,7 +105,7 @@ class WorkController extends Controller
         if(Input::hasFile('image')){
             $file = Input::file('image');
             $file->move('img/work/', $file->getClientOriginalName());
-            $work->image = $file->getClientOriginalName();
+            $work->image = 'img/work/'.$file->getClientOriginalName();
         }
         $work->category = $request->category;
         $work->description = $request->description;

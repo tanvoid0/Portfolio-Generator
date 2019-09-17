@@ -57,7 +57,7 @@ class CvController extends Controller
         $skills = User::find($user->id)->skills;
         $works = User::find($user->id)->works;
 
-        return view('cv.includes.app', compact('user', 'panel', 'educations', 'experiences', 'skills', 'works'));
+        return view('cv.includes.app', compact('user', 'educations', 'experiences', 'skills', 'works'));
 
     }
 

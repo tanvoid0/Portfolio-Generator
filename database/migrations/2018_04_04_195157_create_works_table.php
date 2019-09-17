@@ -17,7 +17,7 @@ class CreateWorksTable extends Migration
           $table->increments('id');
           $table->integer('user_id');
           $table->string('title');
-          $table->string('image');
+          $table->string('image')->nullable();
           $table->string('category')->nullable();
           $table->text('description')->nullable();
           $table->string('link')->nullable();

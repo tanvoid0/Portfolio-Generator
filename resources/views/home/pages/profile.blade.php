@@ -37,7 +37,7 @@
             @foreach($profiles as $profile)
             <div class="col-lg-3 col-md-6"  style="padding: 20px;">
                 {{--<a href="">--}}
-                    <img src="{{ asset('img/user/'.$profile->image) }}" alt="No image" style="width:100%; height: 230px;">
+                    <img src="{{ $profile->image }}" alt="No image" style="width:100%; height: 230px;">
                     <div class="details">
                         <h4>{{ $profile->name }}</h4>
                         <span>{{ $profile->designation }}</span>

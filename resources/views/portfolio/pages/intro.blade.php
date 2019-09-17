@@ -3,7 +3,7 @@
     @if($user->image == "")
         {{ asset('img/1920x1080/01.jpg')}}
     @else
-        {{ asset('img/user/'.$user->image) }}
+        {{ $user->image }}
     @endif
         ">
 		<div class="container">

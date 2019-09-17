@@ -87,7 +87,7 @@ class UserController extends Controller
         if(Input::hasFile('image')){
             $file = Input::file('image');
             $file->move('img/user/', $file->getClientOriginalName());
-            $user->image = $file->getClientOriginalName();
+            $user->image = 'img/user/'.$file->getClientOriginalName();
         }
         if ($request->name != ""){
             $user->name = $request->name;

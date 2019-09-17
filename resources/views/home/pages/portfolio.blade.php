@@ -37,7 +37,7 @@
             @foreach($projects as $project)
             <div class="col-lg-3 col-md-6"  style="padding: 20px;">
                 {{--<a href="">--}}
-                    <img src="{{ asset('img/work/'.$project->image) }}" alt="" style="width:100%; height: 230px;">
+                    <img src="{{ $project->image }}" alt="" style="width:100%; height: 230px;">
                     <div class="details" >
                         <h4>{{ $project->title }}</h4>
                         <span>{{ $project->category }}</span>
